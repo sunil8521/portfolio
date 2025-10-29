@@ -125,10 +125,11 @@ export default function App() {
               <Button onClick={() => scrollTo("projects")} className="bg-white text-black hover:bg-white/90">
                 View Work
               </Button>
-              <Button variant="outline" onClick={() => scrollTo("contact")} className="border-white/30 hover:bg-white/10">
+              <Button variant="outline" onClick={() => scrollTo("contact")} className="border-white/60 text-white bg-transparent hover:bg-white">
                 Get In Touch
               </Button>
             </div>
+            
           </motion.div>
         </section>
 
@@ -166,18 +167,21 @@ export default function App() {
             <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-4xl mb-16 text-center">
               Skills
             </motion.h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {Object.entries(skills).map(([cat, items]) => (
-                <motion.div
-                  key={cat}
-                  initial={{ y: 30 }} whileInView={{ y: 0 }}
-                  className="bg-white/5 border border-white/10 p-6 rounded"
-                >
-                  <h3 className="text-sm uppercase text-white/50 mb-4">{cat}</h3>
-                  {items.map(s => (
-                    <div key={s} className="text-white/80 text-sm"> {s}</div>
-                  ))}
-                </motion.div>
+              <motion.div
+                key={cat}
+                initial={{ y: 30 }}
+                whileInView={{ y: 0 }}
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white/5 border border-white/10 p-6 rounded"
+              >
+                <h3 className="text-sm uppercase text-white/50 mb-4 text-center">{cat}</h3>
+                <div className="flex flex-col  gap-2">
+                {items.map(s => (
+                  <div key={s} className="text-white/80 text-sm">{`> ${s}`}</div>
+                ))}
+                </div>
+              </motion.div>
               ))}
             </div>
           </div>
