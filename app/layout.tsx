@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Sunil — Full Stack Developer",
+  title: "5UN1L",
   description:
     "Full Stack & MERN Developer specializing in building scalable web applications with React, Node.js, and modern technologies.",
   keywords: [

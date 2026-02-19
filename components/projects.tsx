@@ -2,8 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2 } from "lucide-react";
+import Image from "next/image";
 
-const projects = [
+interface Project {
+    title: string;
+    description: string;
+    tech: string[];
+    github: string | null;
+    live: string | null;
+    icon: any;
+    gradient: string;
+    image?: string;
+}
+
+const projects: Project[] = [
     {
         title: "Multi-Tenant SaaS Blogging Platform",
         description: "Designed a multi-tenant backend with data isolation across organizations. Integrated AWS S3 for media storage and DynamoDB via Prisma with RBAC using BetterAuth.",
@@ -12,6 +24,7 @@ const projects = [
         live: null,
         icon: Globe,
         gradient: "from-neutral-800 to-neutral-900",
+        image: undefined
     },
     {
         title: "Real-Time Chat App",
@@ -21,6 +34,7 @@ const projects = [
         live: "https://nextchat-rt8a.onrender.com/home",
         icon: MessageSquare,
         gradient: "from-neutral-800 via-neutral-900 to-neutral-800",
+        image: "/chat.png"
     },
     {
         title: "P2P File Sharing (WebRTC)",
@@ -30,6 +44,7 @@ const projects = [
         live: "https://file-sharing-two-omega.vercel.app",
         icon: Share2,
         gradient: "from-neutral-900 to-neutral-800",
+        image: "/webrtc.png"
     },
 ];
 
@@ -59,30 +74,42 @@ export default function Projects() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.08 }}
-                                className="group rounded-2xl bg-card border border-card-border hover:border-white/15 transition-all duration-300 overflow-hidden glow-border"
+                                className="group rounded-2xl bg-card border border-card-border hover:border-white/15 transition-all duration-300 overflow-hidden glow-border flex flex-col h-full"
                             >
-                                {/* Image Preview */}
-                                <div
-                                    className={`relative h-36 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden border-b border-card-border`}
-                                >
-                                    {/* Subtle grid pattern inside */}
-                                    <div
-                                        className="absolute inset-0 opacity-[0.04]"
-                                        style={{
-                                            backgroundImage:
-                                                "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                                            backgroundSize: "20px 20px",
-                                        }}
-                                    />
-                                    <Icon
-                                        size={40}
-                                        strokeWidth={1}
-                                        className="text-white/10 group-hover:text-white/20 group-hover:scale-110 transition-all duration-500"
-                                    />
+                                {/* Image Preview with fallback */}
+                                <div className="relative h-44 w-full overflow-hidden border-b border-card-border bg-neutral-900">
+                                    {project.image ? (
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
+                                    ) : (
+                                        <div
+                                            className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center relative`}
+                                        >
+                                            {/* Subtle grid pattern inside */}
+                                            <div
+                                                className="absolute inset-0 opacity-[0.04]"
+                                                style={{
+                                                    backgroundImage:
+                                                        "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                                                    backgroundSize: "20px 20px",
+                                                }}
+                                            />
+                                            <Icon
+                                                size={40}
+                                                strokeWidth={1}
+                                                className="text-white/10 group-hover:text-white/20 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                            />
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-4">
+                                <div className="p-4 flex flex-col flex-grow">
                                     <div className="flex items-start justify-between mb-1.5">
                                         <h3 className="text-sm font-semibold text-foreground group-hover:text-white transition-colors flex items-center gap-1.5">
                                             {project.title}
@@ -114,11 +141,11 @@ export default function Projects() {
                                         </div>
                                     </div>
 
-                                    <p className="text-xs text-muted mb-3 leading-relaxed">
+                                    <p className="text-xs text-muted mb-3 leading-relaxed flex-grow">
                                         {project.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-1.5">
+                                    <div className="flex flex-wrap gap-1.5 mt-auto">
                                         {project.tech.map((t) => (
                                             <span
                                                 key={t}
