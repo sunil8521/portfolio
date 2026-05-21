@@ -62,7 +62,7 @@ const projects: Project[] = [
         live: "https://gpt-clone-langgraph-1.onrender.com/",
         icon: MessageSquare,
         gradient: "from-neutral-800 to-neutral-900",
-        image: undefined
+        image: "/gpt-clone.png"
     },
     {
         title: "SnapLoad - Premium Downloader",
@@ -72,7 +72,7 @@ const projects: Project[] = [
         live: "https://snapload.sunilspace.in/",
         icon: Download,
         gradient: "from-neutral-800 via-neutral-900 to-neutral-800",
-        image: undefined
+        image: "/snapload.png"
     },
     {
         title: "ExchangeFile - Local LAN P2P",
@@ -82,7 +82,7 @@ const projects: Project[] = [
         live: "https://exchange-file.vercel.app/",
         icon: Share2,
         gradient: "from-neutral-900 to-neutral-800",
-        image: undefined
+        image: "/exchangefile.png"
     },
     {
         title: "MeetClone - Minimal Zoom",
