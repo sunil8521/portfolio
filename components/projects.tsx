@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video } from "lucide-react";
 import Image from "next/image";
+import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux, FaBrain, FaBroadcastTower } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma } from "react-icons/si";
+import { TbApi, TbBrandHtml5 } from "react-icons/tb";
+import { RiBrainLine } from "react-icons/ri";
 
 interface Project {
     title: string;
@@ -14,6 +18,40 @@ interface Project {
     gradient: string;
     image?: string;
 }
+
+const techIconMap: Record<string, { icon: React.ReactNode }> = {
+    "React": { icon: <FaReact className="w-3 h-3 text-[#61DAFB]" /> },
+    "Next.js": { icon: <SiNextdotjs className="w-3 h-3 text-white" /> },
+    "Next.js 16": { icon: <SiNextdotjs className="w-3 h-3 text-white" /> },
+    "React 19": { icon: <FaReact className="w-3 h-3 text-[#61DAFB]" /> },
+    "TypeScript": { icon: <SiTypescript className="w-3 h-3 text-[#3178C6]" /> },
+    "JavaScript": { icon: <SiJavascript className="w-3 h-3 text-[#F7DF1E]" /> },
+    "Node.js": { icon: <FaNodeJs className="w-3 h-3 text-[#339933]" /> },
+    "Express": { icon: <SiExpress className="w-3 h-3 text-white" /> },
+    "Express.js": { icon: <SiExpress className="w-3 h-3 text-white" /> },
+    "MongoDB": { icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+    "PostgreSQL": { icon: <SiPostgresql className="w-3 h-3 text-[#4169E1]" /> },
+    "Tailwind CSS": { icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> },
+    "Tailwind v4": { icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> },
+    "HTML/CSS": { icon: <TbBrandHtml5 className="w-3 h-3 text-[#E34F26]" /> },
+    "Git": { icon: <FaGitAlt className="w-3 h-3 text-[#F05032]" /> },
+    "Docker": { icon: <FaDocker className="w-3 h-3 text-[#2496ED]" /> },
+    "AWS": { icon: <FaAws className="w-3 h-3 text-[#FF9900]" /> },
+    "AWS S3": { icon: <FaAws className="w-3 h-3 text-[#FF9900]" /> },
+    "Firebase": { icon: <SiFirebase className="w-3.5 h-3.5 text-[#FFCA28]" /> },
+    "Redis": { icon: <SiRedis className="w-3 h-3 text-[#DC382D]" /> },
+    "REST APIs": { icon: <TbApi className="w-3 h-3 text-[#6BA539]" /> },
+    "Linux": { icon: <FaLinux className="w-3 h-3 text-[#FCC624]" /> },
+    "LangGraph": { icon: <FaBrain className="w-3 h-3 text-[#8A2BE2]" /> },
+    "Gemini 2.5": { icon: <RiBrainLine className="w-3 h-3 text-[#1A73E8]" /> },
+    "Zustand": { icon: <span className="text-[10px] leading-none font-bold">🐻</span> },
+    "Bun": { icon: <SiBun className="w-3 h-3 text-[#F9F1E7]" /> },
+    "SSE": { icon: <FaBroadcastTower className="w-3 h-3 text-[#FF4500]" /> },
+    "WebRTC": { icon: <SiWebrtc className="w-3 h-3 text-[#32CD32]" /> },
+    "Socket.IO": { icon: <SiSocketdotio className="w-3 h-3 text-white" /> },
+    "DynamoDB": { icon: <SiAmazondynamodb className="w-3 h-3 text-[#4053F2]" /> },
+    "Prisma": { icon: <SiPrisma className="w-3 h-3 text-[#5A67D8]" /> },
+};
 
 const projects: Project[] = [
     {
@@ -166,14 +204,18 @@ export default function Projects() {
                                     </p>
 
                                     <div className="flex flex-wrap gap-1.5 mt-auto">
-                                        {project.tech.map((t) => (
-                                            <span
-                                                key={t}
-                                                className="text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-muted-dark"
-                                            >
-                                                {t}
-                                            </span>
-                                        ))}
+                                        {project.tech.map((t) => {
+                                            const techData = techIconMap[t];
+                                            return (
+                                                <span
+                                                    key={t}
+                                                    className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-muted-dark hover:text-foreground hover:border-white/20 transition-all duration-200"
+                                                >
+                                                    {techData?.icon}
+                                                    {t}
+                                                </span>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </motion.div>
