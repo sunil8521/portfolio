@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video } from "lucide-react";
 import Image from "next/image";
 import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux, FaBrain, FaBroadcastTower } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma, SiMui } from "react-icons/si";
 import { TbApi, TbBrandHtml5 } from "react-icons/tb";
 import { RiBrainLine } from "react-icons/ri";
 
@@ -51,6 +51,8 @@ const techIconMap: Record<string, { icon: React.ReactNode }> = {
     "Socket.IO": { icon: <SiSocketdotio className="w-3 h-3 text-white" /> },
     "DynamoDB": { icon: <SiAmazondynamodb className="w-3 h-3 text-[#4053F2]" /> },
     "Prisma": { icon: <SiPrisma className="w-3 h-3 text-[#5A67D8]" /> },
+    "WebSockets": { icon: <SiSocketdotio className="w-3 h-3 text-white" /> },
+    "Joy UI": { icon: <SiMui className="w-3 h-3 text-[#007FFF]" /> },
 };
 
 const projects: Project[] = [
@@ -83,6 +85,16 @@ const projects: Project[] = [
         icon: Share2,
         gradient: "from-neutral-900 to-neutral-800",
         image: "/exchangefile.png"
+    },
+    {
+        title: "Real-Time Chat App",
+        description: "Real-time chat application using React and WebSockets for seamless communication. Includes file transfer via WebRTC for peer-to-peer sharing.",
+        tech: ["React", "WebSockets", "WebRTC", "MongoDB", "Joy UI"],
+        github: "https://github.com/sunil8521/chat-webapp",
+        live: "https://nextchat-rt8a.onrender.com/home",
+        icon: MessageSquare,
+        gradient: "from-neutral-850 via-neutral-900 to-neutral-850",
+        image: "/chat.png"
     },
     {
         title: "MeetClone - Minimal Zoom",
