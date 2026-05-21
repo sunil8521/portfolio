@@ -57,6 +57,36 @@ const techIconMap: Record<string, { icon: React.ReactNode }> = {
 
 const projects: Project[] = [
     {
+        title: "MeetClone - Minimal Zoom",
+        description: "A lightweight Google Meet / Zoom clone built for serverless real-time audio/video conferencing. Implements WebRTC mesh topology connection pairs and Socket.IO signaling, featuring interactive custom lobby previews and responsive active grid tiles.",
+        tech: ["Next.js 16", "React 19", "WebRTC", "Socket.IO", "Zustand", "Express"],
+        github: "https://github.com/sunil8521/nooB-version-of-google-meet",
+        live: null,
+        icon: Video,
+        gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
+        image: undefined
+    },
+    {
+        title: "Multi-Tenant SaaS Blogging Platform",
+        description: "Designed a multi-tenant backend with data isolation across organizations. Integrated AWS S3 for media storage and DynamoDB via Prisma with RBAC using BetterAuth.",
+        tech: ["Node.js", "React", "TypeScript", "AWS S3", "DynamoDB", "Prisma"],
+        github: "https://github.com/sunil8521/Multi-Tenant-SaaS-Blog",
+        live: null,
+        icon: Globe,
+        gradient: "from-neutral-800 to-neutral-900",
+        image: undefined
+    },
+    {
+        title: "ExchangeFile - Local LAN P2P",
+        description: "A peer-to-peer LAN file transfer app. Auto-discovers local subnet devices via Socket.IO signaling, transferring large files securely over WebRTC DataChannels with 16KB chunking and custom backpressure-aware pause/resume protocols.",
+        tech: ["React", "TypeScript", "WebRTC", "Socket.IO", "Zustand", "Tailwind v4"],
+        github: "https://github.com/sunil8521/ExchangeFile-Local-Network-File-Transfer",
+        live: "https://exchange-file.vercel.app/",
+        icon: Share2,
+        gradient: "from-neutral-900 to-neutral-800",
+        image: "/exchangefile.png"
+    },
+    {
         title: "GPT-Clone (LangGraph + Memory)",
         description: "A highly advanced full-stack ChatGPT/Gemini clone built with LangGraph for stateful multi-agent conversational memory. Securely stores conversation threads and agent checkpoints in MongoDB, featuring a premium modern chatbot layout.",
         tech: ["React", "LangGraph", "Gemini 2.5", "Zustand", "Express", "MongoDB"],
@@ -77,16 +107,6 @@ const projects: Project[] = [
         image: "/snapload.png"
     },
     {
-        title: "ExchangeFile - Local LAN P2P",
-        description: "A peer-to-peer LAN file transfer app. Auto-discovers local subnet devices via Socket.IO signaling, transferring large files securely over WebRTC DataChannels with 16KB chunking and custom backpressure-aware pause/resume protocols.",
-        tech: ["React", "TypeScript", "WebRTC", "Socket.IO", "Zustand", "Tailwind v4"],
-        github: "https://github.com/sunil8521/ExchangeFile-Local-Network-File-Transfer",
-        live: "https://exchange-file.vercel.app/",
-        icon: Share2,
-        gradient: "from-neutral-900 to-neutral-800",
-        image: "/exchangefile.png"
-    },
-    {
         title: "Real-Time Chat App",
         description: "Real-time chat application using React and WebSockets for seamless communication. Includes file transfer via WebRTC for peer-to-peer sharing.",
         tech: ["React", "WebSockets", "WebRTC", "MongoDB", "Joy UI"],
@@ -95,26 +115,6 @@ const projects: Project[] = [
         icon: MessageSquare,
         gradient: "from-neutral-850 via-neutral-900 to-neutral-850",
         image: "/chat.png"
-    },
-    {
-        title: "MeetClone - Minimal Zoom",
-        description: "A lightweight Google Meet / Zoom clone built for serverless real-time audio/video conferencing. Implements WebRTC mesh topology connection pairs and Socket.IO signaling, featuring interactive custom lobby previews and responsive active grid tiles.",
-        tech: ["Next.js 16", "React 19", "WebRTC", "Socket.IO", "Zustand", "Express"],
-        github: "https://github.com/sunil8521/nooB-version-of-google-meet",
-        live: null,
-        icon: Video,
-        gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
-        image: undefined
-    },
-    {
-        title: "Multi-Tenant SaaS Blogging Platform",
-        description: "Designed a multi-tenant backend with data isolation across organizations. Integrated AWS S3 for media storage and DynamoDB via Prisma with RBAC using BetterAuth.",
-        tech: ["Node.js", "React", "TypeScript", "AWS S3", "DynamoDB", "Prisma"],
-        github: "https://github.com/sunil8521/Multi-Tenant-SaaS-Blog",
-        live: null,
-        icon: Globe,
-        gradient: "from-neutral-800 to-neutral-900",
-        image: undefined
     },
 ];
 
