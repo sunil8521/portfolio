@@ -48,9 +48,12 @@ export default function Navbar() {
         const id = href.slice(1);
         const el = document.getElementById(id);
         if (el) {
-            const yOffset = -80;
-            const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-            window.scrollTo({ top: y, behavior: "smooth" });
+            // Defer the scroll until the mobile menu exit transition (250ms) completes
+            setTimeout(() => {
+                const yOffset = -80;
+                const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+            }, 300);
         }
     }, []);
 

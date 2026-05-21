@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2 } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video } from "lucide-react";
 import Image from "next/image";
 
 interface Project {
@@ -17,6 +17,46 @@ interface Project {
 
 const projects: Project[] = [
     {
+        title: "GPT-Clone (LangGraph + Memory)",
+        description: "A highly advanced full-stack ChatGPT/Gemini clone built with LangGraph for stateful multi-agent conversational memory. Securely stores conversation threads and agent checkpoints in MongoDB, featuring a premium modern chatbot layout.",
+        tech: ["React", "LangGraph", "Gemini 2.5", "Zustand", "Express", "MongoDB"],
+        github: "https://github.com/sunil8521/GPT-Clone-LangGraph",
+        live: "https://gpt-clone-langgraph-1.onrender.com/",
+        icon: MessageSquare,
+        gradient: "from-neutral-800 to-neutral-900",
+        image: undefined
+    },
+    {
+        title: "SnapLoad - Premium Downloader",
+        description: "A premium high-performance media downloader supporting YouTube and Instagram extraction. Built with Next.js 16 (client) and Express/TypeScript/Bun (backend), featuring real-time SSE progress indicators and backpressure-optimized streaming.",
+        tech: ["Next.js 16", "Express", "Bun", "Tailwind v4", "SSE", "TypeScript"],
+        github: "https://github.com/sunil8521/video-downloader",
+        live: "https://snapload.sunilspace.in/",
+        icon: Download,
+        gradient: "from-neutral-800 via-neutral-900 to-neutral-800",
+        image: undefined
+    },
+    {
+        title: "ExchangeFile - Local LAN P2P",
+        description: "A peer-to-peer LAN file transfer app. Auto-discovers local subnet devices via Socket.IO signaling, transferring large files securely over WebRTC DataChannels with 16KB chunking and custom backpressure-aware pause/resume protocols.",
+        tech: ["React", "TypeScript", "WebRTC", "Socket.IO", "Zustand", "Tailwind v4"],
+        github: "https://github.com/sunil8521/ExchangeFile-Local-Network-File-Transfer",
+        live: "https://exchange-file.vercel.app/",
+        icon: Share2,
+        gradient: "from-neutral-900 to-neutral-800",
+        image: undefined
+    },
+    {
+        title: "MeetClone - Minimal Zoom",
+        description: "A lightweight Google Meet / Zoom clone built for serverless real-time audio/video conferencing. Implements WebRTC mesh topology connection pairs and Socket.IO signaling, featuring interactive custom lobby previews and responsive active grid tiles.",
+        tech: ["Next.js 16", "React 19", "WebRTC", "Socket.IO", "Zustand", "Express"],
+        github: "https://github.com/sunil8521/nooB-version-of-google-meet",
+        live: null,
+        icon: Video,
+        gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
+        image: undefined
+    },
+    {
         title: "Multi-Tenant SaaS Blogging Platform",
         description: "Designed a multi-tenant backend with data isolation across organizations. Integrated AWS S3 for media storage and DynamoDB via Prisma with RBAC using BetterAuth.",
         tech: ["Node.js", "React", "TypeScript", "AWS S3", "DynamoDB", "Prisma"],
@@ -25,26 +65,6 @@ const projects: Project[] = [
         icon: Globe,
         gradient: "from-neutral-800 to-neutral-900",
         image: undefined
-    },
-    {
-        title: "Real-Time Chat App",
-        description: "Real-time chat application using React and WebSockets for seamless communication. Includes file transfer via WebRTC for peer-to-peer sharing.",
-        tech: ["React", "WebSockets", "WebRTC", "MongoDB", "Joy UI"],
-        github: "https://github.com/sunil8521/chat-webapp",
-        live: "https://nextchat-rt8a.onrender.com/home",
-        icon: MessageSquare,
-        gradient: "from-neutral-800 via-neutral-900 to-neutral-800",
-        image: "/chat.png"
-    },
-    {
-        title: "P2P File Sharing (WebRTC)",
-        description: "Secure, real-time file-sharing app using WebRTC Data Channels for direct peer-to-peer transfers without a server, with Socket.IO for signaling.",
-        tech: ["React", "TypeScript", "WebRTC", "Socket.IO"],
-        github: "https://github.com/sunil8521/web-rtc-file-transfer-between-p2p-",
-        live: "https://file-sharing-two-omega.vercel.app",
-        icon: Share2,
-        gradient: "from-neutral-900 to-neutral-800",
-        image: "/webrtc.png"
     },
 ];
 

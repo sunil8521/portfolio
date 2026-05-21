@@ -1,9 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Briefcase, Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
+    {
+        company: "Swiftrise Solution Pvt Ltd",
+        role: "Full-stack Developer Intern",
+        type: "Full-time",
+        location: "Remote",
+        period: "Feb 2026 – Present",
+        isCurrent: true,
+        description: [
+            "Engineered secure, high-performance server architectures using Node.js and Express.js to process enterprise transactions.",
+            "Created pixel-perfect, fully responsive client interfaces using modern React and Tailwind CSS.",
+            "Integrated state management protocols and optimized browser API usage to enhance user experience.",
+            "Authored scalable, clean codebase patterns and maintained version workflows using Git."
+        ],
+        tech: ["Node.js", "Express.js", "React", "Frontend Development","Next.js"],
+        link: "https://www.linkedin.com/company/swiftrise-solutions-pvt-ltd",
+    },
     {
         company: "Tribex Esports",
         role: "Full Stack Developer Intern",
@@ -17,6 +33,7 @@ const experiences = [
             "Delivered bug fixes and feature updates collaborating with a remote development team",
         ],
         tech: ["React", "Node.js", "MongoDB", "REST APIs"],
+        link: "https://tribexesports.com",
     },
     {
         company: "TimesPro",
@@ -31,6 +48,7 @@ const experiences = [
             "Set up CI/CD pipelines using GitHub Actions to automate testing and deployment workflows",
         ],
         tech: ["Python", "Flask", "Docker", "GitHub Actions", "CI/CD"],
+        link: null,
     },
 ];
 
@@ -82,7 +100,19 @@ export default function Experience() {
                                     <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                                         <div>
                                             <h3 className="text-lg font-semibold text-foreground">
-                                                {exp.company}
+                                                {exp.link ? (
+                                                    <a
+                                                        href={exp.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="hover:text-white hover:underline flex items-center gap-1.5 group/link"
+                                                    >
+                                                        {exp.company}
+                                                        <ExternalLink size={14} className="text-muted-dark group-hover/link:text-white transition-colors" />
+                                                    </a>
+                                                ) : (
+                                                    exp.company
+                                                )}
                                             </h3>
                                             <p className="text-neutral-400 font-medium text-sm">
                                                 {exp.role}
