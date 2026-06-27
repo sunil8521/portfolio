@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video } from "lucide-react";
 import Image from "next/image";
 import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux, FaBrain, FaBroadcastTower } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma, SiMui } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma, SiMui, SiRazorpay } from "react-icons/si";
 import { TbApi, TbBrandHtml5 } from "react-icons/tb";
-import { RiBrainLine } from "react-icons/ri";
+import { RiBrainLine, RiRobot2Line } from "react-icons/ri";
 
 interface Project {
     title: string;
@@ -53,9 +53,23 @@ const techIconMap: Record<string, { icon: React.ReactNode }> = {
     "Prisma": { icon: <SiPrisma className="w-3 h-3 text-[#5A67D8]" /> },
     "WebSockets": { icon: <SiSocketdotio className="w-3 h-3 text-white" /> },
     "Joy UI": { icon: <SiMui className="w-3 h-3 text-[#007FFF]" /> },
+    "BullMQ": { icon: <SiRedis className="w-3 h-3 text-[#DC382D]" /> },
+    "PGVector": { icon: <SiPostgresql className="w-3 h-3 text-[#4169E1]" /> },
+    "LangChain": { icon: <FaBrain className="w-3 h-3 text-[#1C3C3C]" /> },
+    "Razorpay": { icon: <SiRazorpay className="w-3 h-3 text-[#0C2451]" /> },
 };
 
 const projects: Project[] = [
+    {
+        title: "AI Support Agent — E-Commerce",
+        description: "Production-grade AI customer support with RAG knowledge retrieval (PGVector), human-in-the-loop approval for sensitive actions, live agent handoff via WebSockets, and async job processing with BullMQ + Redis. Built with LangGraph agent orchestration and Gemini 2.5 Flash.",
+        tech: ["Next.js", "LangGraph", "LangChain", "Gemini 2.5", "PGVector", "BullMQ", "Redis", "Socket.IO", "Razorpay"],
+        github: "https://github.com/sunil8521/ecommerce-ai-support-agent",
+        live: null,
+        icon: RiRobot2Line,
+        gradient: "from-purple-900/50 via-neutral-900 to-neutral-900",
+        image: "/ecom-agent.png"
+    },
     {
         title: "MeetClone - Minimal Zoom",
         description: "A lightweight Google Meet / Zoom clone built for serverless real-time audio/video conferencing. Implements WebRTC mesh topology connection pairs and Socket.IO signaling, featuring interactive custom lobby previews and responsive active grid tiles.",

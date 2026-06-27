@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux, FaBrain } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis } from "react-icons/si";
 import { TbApi, TbBrandHtml5 } from "react-icons/tb";
+import { RiBrainLine } from "react-icons/ri";
 
 const skills: { name: string; icon: React.ReactNode }[] = [
     { name: "React", icon: <FaReact className="w-4 h-4 text-[#61DAFB]" /> },
@@ -21,6 +22,8 @@ const skills: { name: string; icon: React.ReactNode }[] = [
     { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900]" /> },
     { name: "Firebase", icon: <SiFirebase className="w-4 h-4 text-[#FFCA28]" /> },
     { name: "Redis", icon: <SiRedis className="w-4 h-4 text-[#DC382D]" /> },
+    { name: "LangChain", icon: <FaBrain className="w-4 h-4 text-[#1C3C3C]" /> },
+    { name: "LangGraph", icon: <RiBrainLine className="w-4 h-4 text-[#8A2BE2]" /> },
     { name: "REST APIs", icon: <TbApi className="w-4 h-4 text-[#6BA539]" /> },
     { name: "Linux", icon: <FaLinux className="w-4 h-4 text-[#FCC624]" /> },
 ];
