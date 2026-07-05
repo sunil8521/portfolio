@@ -75,7 +75,7 @@ const projects: Project[] = [
         description: "A lightweight Google Meet / Zoom clone built for serverless real-time audio/video conferencing. Implements WebRTC mesh topology connection pairs and Socket.IO signaling, featuring interactive custom lobby previews and responsive active grid tiles.",
         tech: ["Next.js 16", "React 19", "WebRTC", "Socket.IO", "Zustand", "Express"],
         github: "https://github.com/sunil8521/nooB-version-of-google-meet",
-        live: null,
+        live: "https://video-meet-latn.onrender.com",
         icon: Video,
         gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
         image: undefined
