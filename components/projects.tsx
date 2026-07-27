@@ -1,12 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Globe, MessageSquare, Share2, Download, Video, BookOpen } from "lucide-react";
 import Image from "next/image";
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaLinux, FaBrain, FaBroadcastTower } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiJavascript, SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase, SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb, SiPrisma, SiMui, SiRazorpay } from "react-icons/si";
+import { FaAws, FaLinux, FaBroadcastTower, FaJava } from "react-icons/fa";
+import {
+    SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiNodedotjs,
+    SiExpress, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase,
+    SiRedis, SiSocketdotio, SiWebrtc, SiBun, SiAmazondynamodb,
+    SiPrisma, SiMui, SiRazorpay, SiLangchain, SiGit, SiDocker
+} from "react-icons/si";
 import { TbApi, TbBrandHtml5 } from "react-icons/tb";
 import { RiBrainLine, RiRobot2Line } from "react-icons/ri";
+import { BsLightningCharge } from "react-icons/bs";
+import { HiOutlineQueueList } from "react-icons/hi2";
 
 interface Project {
     title: string;
@@ -20,13 +27,13 @@ interface Project {
 }
 
 const techIconMap: Record<string, { icon: React.ReactNode }> = {
-    "React": { icon: <FaReact className="w-3 h-3 text-[#61DAFB]" /> },
+    "React": { icon: <SiReact className="w-3 h-3 text-[#61DAFB]" /> },
     "Next.js": { icon: <SiNextdotjs className="w-3 h-3 text-white" /> },
     "Next.js 16": { icon: <SiNextdotjs className="w-3 h-3 text-white" /> },
-    "React 19": { icon: <FaReact className="w-3 h-3 text-[#61DAFB]" /> },
+    "React 19": { icon: <SiReact className="w-3 h-3 text-[#61DAFB]" /> },
     "TypeScript": { icon: <SiTypescript className="w-3 h-3 text-[#3178C6]" /> },
     "JavaScript": { icon: <SiJavascript className="w-3 h-3 text-[#F7DF1E]" /> },
-    "Node.js": { icon: <FaNodeJs className="w-3 h-3 text-[#339933]" /> },
+    "Node.js": { icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
     "Express": { icon: <SiExpress className="w-3 h-3 text-white" /> },
     "Express.js": { icon: <SiExpress className="w-3 h-3 text-white" /> },
     "MongoDB": { icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
@@ -34,17 +41,17 @@ const techIconMap: Record<string, { icon: React.ReactNode }> = {
     "Tailwind CSS": { icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> },
     "Tailwind v4": { icon: <SiTailwindcss className="w-3 h-3 text-[#06B6D4]" /> },
     "HTML/CSS": { icon: <TbBrandHtml5 className="w-3 h-3 text-[#E34F26]" /> },
-    "Git": { icon: <FaGitAlt className="w-3 h-3 text-[#F05032]" /> },
-    "Docker": { icon: <FaDocker className="w-3 h-3 text-[#2496ED]" /> },
+    "Git": { icon: <SiGit className="w-3 h-3 text-[#F05032]" /> },
+    "Docker": { icon: <SiDocker className="w-3 h-3 text-[#2496ED]" /> },
     "AWS": { icon: <FaAws className="w-3 h-3 text-[#FF9900]" /> },
     "AWS S3": { icon: <FaAws className="w-3 h-3 text-[#FF9900]" /> },
-    "Firebase": { icon: <SiFirebase className="w-3.5 h-3.5 text-[#FFCA28]" /> },
-    "Redis": { icon: <SiRedis className="w-3 h-3 text-[#DC382D]" /> },
-    "REST APIs": { icon: <TbApi className="w-3 h-3 text-[#6BA539]" /> },
+    "Firebase": { icon: <SiFirebase className="w-3.5 h-3.5 text-[#DD2C00]" /> },
+    "Redis": { icon: <SiRedis className="w-3 h-3 text-[#FF4438]" /> },
+    "REST APIs": { icon: <TbApi className="w-3 h-3 text-[#10B981]" /> },
     "Linux": { icon: <FaLinux className="w-3 h-3 text-[#FCC624]" /> },
-    "LangGraph": { icon: <FaBrain className="w-3 h-3 text-[#8A2BE2]" /> },
-    "Gemini 2.5": { icon: <RiBrainLine className="w-3 h-3 text-[#1A73E8]" /> },
-    "Zustand": { icon: <span className="text-[10px] leading-none font-bold">🐻</span> },
+    "LangGraph": { icon: <RiBrainLine className="w-3 h-3 text-[#A855F7]" /> },
+    "Gemini 2.5": { icon: <BsLightningCharge className="w-3 h-3 text-[#4285F4]" /> },
+    "Zustand": { icon: <HiOutlineQueueList className="w-3 h-3 text-[#F59E0B]" /> },
     "Bun": { icon: <SiBun className="w-3 h-3 text-[#F9F1E7]" /> },
     "SSE": { icon: <FaBroadcastTower className="w-3 h-3 text-[#FF4500]" /> },
     "WebRTC": { icon: <SiWebrtc className="w-3 h-3 text-[#32CD32]" /> },
@@ -53,13 +60,24 @@ const techIconMap: Record<string, { icon: React.ReactNode }> = {
     "Prisma": { icon: <SiPrisma className="w-3 h-3 text-[#5A67D8]" /> },
     "WebSockets": { icon: <SiSocketdotio className="w-3 h-3 text-white" /> },
     "Joy UI": { icon: <SiMui className="w-3 h-3 text-[#007FFF]" /> },
-    "BullMQ": { icon: <SiRedis className="w-3 h-3 text-[#DC382D]" /> },
+    "BullMQ": { icon: <HiOutlineQueueList className="w-3 h-3 text-[#EF4444]" /> },
     "PGVector": { icon: <SiPostgresql className="w-3 h-3 text-[#4169E1]" /> },
-    "LangChain": { icon: <FaBrain className="w-3 h-3 text-[#1C3C3C]" /> },
-    "Razorpay": { icon: <SiRazorpay className="w-3 h-3 text-[#0C2451]" /> },
+    "LangChain": { icon: <SiLangchain className="w-3 h-3 text-[#1C3C3C]" style={{ filter: "invert(1)" }} /> },
+    "Razorpay": { icon: <SiRazorpay className="w-3 h-3 text-[#528FF0]" /> },
+    "Spring Boot": { icon: <FaJava className="w-3 h-3 text-[#ED8B00]" /> },
 };
 
 const projects: Project[] = [
+    {
+        title: "RAG Book - AI Document Assistant",
+        description: "An AI-powered document retrieval system. Users can upload PDFs which are chunked, parsed with Apache Tika, and embedded using Gemini AI into a PostgreSQL database with pgvector. Features a seamless React frontend and a robust Spring Boot microservice backend.",
+        tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "PostgreSQL", "PGVector", "Gemini 2.5", "Docker"],
+        github: "https://github.com/sunil8521/rag-microservice-java",
+        live: "https://qa-client.onrender.com",
+        icon: BookOpen,
+        gradient: "from-green-900/50 via-neutral-900 to-neutral-900",
+        image: "/rag-book.png"
+    },
     {
         title: "AI Support Agent — E-Commerce",
         description: "Production-grade AI customer support with RAG knowledge retrieval (PGVector), human-in-the-loop approval for sensitive actions, live agent handoff via WebSockets, and async job processing with BullMQ + Redis. Built with LangGraph agent orchestration and Gemini 2.5 Flash.",
@@ -78,7 +96,7 @@ const projects: Project[] = [
         live: "https://video-meet-latn.onrender.com",
         icon: Video,
         gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
-        image: undefined
+        image: "/google-meet.png"
     },
     {
         title: "Multi-Tenant SaaS Blogging Platform",
