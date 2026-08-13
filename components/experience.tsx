@@ -1,7 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Briefcase, Calendar, MapPin, ExternalLink, Code, Rocket } from "lucide-react";
+import {
+    SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb,
+    SiPython, SiFlask, SiDocker, SiGithubactions
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+
+const techIconMap: Record<string, { icon: React.ReactNode }> = {
+    "Node.js": { icon: <SiNodedotjs className="w-3 h-3 text-[#5FA04E]" /> },
+    "Express.js": { icon: <SiExpress className="w-3 h-3 text-white" /> },
+    "React": { icon: <SiReact className="w-3 h-3 text-[#61DAFB]" /> },
+    "Next.js": { icon: <SiNextdotjs className="w-3 h-3 text-white" /> },
+    "Frontend Development": { icon: <Code className="w-3 h-3 text-neutral-400" /> },
+    "MongoDB": { icon: <SiMongodb className="w-3 h-3 text-[#47A248]" /> },
+    "REST APIs": { icon: <TbApi className="w-3 h-3 text-[#10B981]" /> },
+    "Python": { icon: <SiPython className="w-3 h-3 text-[#3776AB]" /> },
+    "Flask": { icon: <SiFlask className="w-3 h-3 text-white" /> },
+    "Docker": { icon: <SiDocker className="w-3 h-3 text-[#2496ED]" /> },
+    "GitHub Actions": { icon: <SiGithubactions className="w-3 h-3 text-[#2088FF]" /> },
+    "CI/CD": { icon: <Rocket className="w-3 h-3 text-orange-500" /> },
+};
 
 const experiences = [
     {
@@ -155,14 +175,18 @@ export default function Experience() {
 
                                     {/* Tech badges */}
                                     <div className="flex flex-wrap gap-2">
-                                        {exp.tech.map((t) => (
-                                            <span
-                                                key={t}
-                                                className="text-xs px-2.5 py-1 rounded-md bg-surface border border-card-border text-muted-dark"
-                                            >
-                                                {t}
-                                            </span>
-                                        ))}
+                                        {exp.tech.map((t) => {
+                                            const techData = techIconMap[t];
+                                            return (
+                                                <span
+                                                    key={t}
+                                                    className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-surface border border-card-border text-muted-dark"
+                                                >
+                                                    {techData?.icon}
+                                                    {t}
+                                                </span>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </motion.div>
