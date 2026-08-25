@@ -73,7 +73,7 @@ const projects: Project[] = [
         description: "An intelligent help desk that lets businesses deploy a customizable AI chat widget. Visitors chat with a LangGraph-powered AI agent backed by a knowledge base, with seamless real-time handoff to human agents via Socket.IO.",
         tech: ["Next.js 16", "LangGraph", "Gemini 2.5", "MongoDB", "Socket.IO", "Zustand"],
         github: "https://github.com/sunil8521/helpdesk",
-        live: "https://helpdesk-nszf.onrender.com",
+        live: "https://helpdesk.sunilspace.in",
         icon: Headset,
         gradient: "from-blue-900/50 via-neutral-900 to-neutral-900",
         image: "/helpdesk.png"
@@ -176,9 +176,6 @@ export default function Projects() {
                         <h2 className="text-3xl font-black mb-2 tracking-wide uppercase">Work</h2>
                         <p className="text-sm text-neutral-400">Featured projects and case studies</p>
                     </div>
-                    <a href="#contact" className="hidden sm:inline-block text-xs font-semibold tracking-wider px-5 py-2.5 border border-white/20 rounded-full hover:bg-white/10 transition-colors uppercase">
-                        Book a call
-                    </a>
                 </motion.div>
 
                 {/* Projects List */}
@@ -205,13 +202,13 @@ export default function Projects() {
                                 </div>
 
                                 {/* Main Card */}
-                                <div className="flex-1 w-full flex flex-col md:flex-row bg-[#050505] rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-2xl relative group">
+                                <div className="flex-1 w-full flex flex-col md:flex-row items-stretch bg-[#050505] rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-2xl relative group">
                                     
                                     {/* Subtle Glow background on hover */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     
                                     {/* Image Section */}
-                                    <div className="w-full md:w-5/12 lg:w-1/2 h-64 md:h-auto relative overflow-hidden bg-neutral-900 shrink-0 border-b md:border-b-0 md:border-r border-white/10">
+                                    <div className={`w-full md:w-5/12 lg:w-1/2 aspect-video md:aspect-auto relative overflow-hidden bg-neutral-900 shrink-0 border-b md:border-b-0 ${isEven ? 'md:border-l' : 'md:border-r'} border-white/10`}>
                                         {project.image ? (
                                             <Image
                                                 src={project.image}
@@ -272,13 +269,6 @@ export default function Projects() {
                             </motion.div>
                         );
                     })}
-                </div>
-                
-                {/* View All Button (Bottom) */}
-                <div className="mt-20 flex justify-center border-t border-white/5 pt-12">
-                    <button className="text-xs font-bold tracking-[0.2em] px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all text-neutral-400 hover:text-white uppercase">
-                        View All Products →
-                    </button>
                 </div>
             </div>
         </section>

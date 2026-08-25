@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Menu, X, Home, Code2, Briefcase, FolderOpen, Mail } from "lucide-react";
+import { Menu, X, Home, Code2, Briefcase, FolderOpen, Mail, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
     { name: "Home", href: "#home", icon: Home },
     { name: "Skills", href: "#skills", icon: Code2 },
+    { name: "Client Work", href: "#client-work", icon: Sparkles },
     { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Projects", href: "#projects", icon: FolderOpen },
     { name: "Contact", href: "#contact", icon: Mail },

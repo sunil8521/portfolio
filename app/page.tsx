@@ -3,6 +3,7 @@ import Hero from "@/components/hero";
 import Skills from "@/components/skills";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
+import ClientProjects from "@/components/client-projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Skills />
+      <ClientProjects />
       <Experience />
       <Projects />
       <Contact />

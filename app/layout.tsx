@@ -46,11 +46,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         {children}
-        <Script 
-            src="https://helpdesk-nszf.onrender.com/widget.js" 
-            data-helpdesk-workspace-id="ws_ho4nk6" 
-            strategy="lazyOnload" 
-        />
+        <script src="https://cdn.jsdelivr.net/gh/sunil8521/cdn/widget.js" data-helpdesk-workspace-id="ws_phte80" data-backend-url="https://helpdesk.sunilspace.in" defer></script>
       </body>
     </html>
   );
